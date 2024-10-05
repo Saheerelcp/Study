@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Login Option</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .option {
+            margin-bottom: 15px;
+        }
+        .option button {
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .option button:hover {
+            background-color: darkgreen;
+        }
+        .signup {
+            margin-top: 20px;
+        }
+        .signup a {
+            color: green;
+            text-decoration: none;
+        }
+        .signup a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Dummy company logo -->
+        <img src="https://via.placeholder.com/150" alt="Company Logo">
+
+        <h2>Login As</h2>
+        
+        <!-- Option to login as Seller or Customer -->
+        <div class="option">
+            <button onclick="window.location.href='seller-login.html'">Login as Seller</button>
+        </div>
+        <div class="option">
+            <button onclick="window.location.href='customer-login.html'">Login as Customer</button>
+        </div>
+
+        <!-- Sign Up link -->
+        <div class="signup">
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+</body>
+</html>
