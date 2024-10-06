@@ -84,7 +84,7 @@
 <body>
     <div class="container">
         <h1>Customer Login</h1>
-        <form id="loginForm" action="/LogoInterface" method="POST">
+        <form id="loginForm" action="/login" method="POST">
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -110,7 +110,7 @@
           const role = formData.get('role');
       
           try {
-            const response = await fetch('/LogoInterface', {
+            const response = await fetch('/login', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ username, password, role })
@@ -122,7 +122,7 @@
               document.getElementById('error-message').innerText = message;
               document.getElementById('error-message').style.display = 'block';
             } else {
-              window.location.href = '/LogoInterface.html';  // Successful login
+              window.location.href = '/login.html';  // Successful login
             }
           } catch (error) {
             document.getElementById('error-message').innerText = 'An error occurred. Please try again.';

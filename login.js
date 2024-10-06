@@ -42,12 +42,12 @@ app.get('/seller-login', (req, res) => {
 app.get('/customer-login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'customer-login.html'));  // Update to the actual file path
 });
-app.get('/LogoInterface', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'LogoInterface.html')); // Adjust the file path as needed
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'login.html')); // Adjust the file path as needed
 });
 
 // POST Login Route
-app.post('/LogoInterface', async (req, res) => {
+app.post('/login', async (req, res) => {
   console.log("POST request received at /Logointerface");  // This log helps
   const { username, password, role } = req.body;
   console.log(`Login request for role: ${role}, username: ${username}`);
@@ -78,7 +78,7 @@ app.post('/LogoInterface', async (req, res) => {
 
     console.log("Login successful!");
     
-    return res.redirect('/LogoInterface');
+    return res.redirect('/login.html');
   } catch (err) {
     console.log("Error during MongoDB query:", err);
     return res.status(500).send("Database error. Please try again.");
@@ -87,5 +87,5 @@ app.post('/LogoInterface', async (req, res) => {
 
 
 // Start the server
-const PORT = process.env.PORT || 5073;
+const PORT = process.env.PORT || 5080;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
