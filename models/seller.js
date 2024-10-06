@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CustomerSchema = new mongoose.Schema({
+const SellerSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -10,7 +10,8 @@ const CustomerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  
 });
 
 // Export the schema instead of the model
-module.exports = CustomerSchema;
+module.exports = SellerSchema;

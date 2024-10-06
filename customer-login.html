@@ -84,7 +84,7 @@
 <body>
     <div class="container">
         <h1>Customer Login</h1>
-        <form id="loginForm" action="/login" method="POST">
+        <form id="loginForm" action="/LogoInterface" method="POST">
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -99,5 +99,38 @@
         </form>
       
     </div>
+    <div id="error-message" style="color: red; display: none;"></div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+          event.preventDefault();
+          const formData = new FormData(this);
+          const username = formData.get('username');
+          const password = formData.get('password');
+          const role = formData.get('role');
+      
+          try {
+            const response = await fetch('/LogoInterface', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username, password, role })
+            });
+      
+            if (!response.ok) {
+              const message = await response.text();
+              console.log("Error:", response.status, message);  // Log detailed error
+              document.getElementById('error-message').innerText = message;
+              document.getElementById('error-message').style.display = 'block';
+            } else {
+              window.location.href = '/LogoInterface.html';  // Successful login
+            }
+          } catch (error) {
+            document.getElementById('error-message').innerText = 'An error occurred. Please try again.';
+            document.getElementById('error-message').style.display = 'block';
+          }
+        });
+      </script>
+      
+
 </body>
 </html>
